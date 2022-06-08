@@ -1,0 +1,35 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<ul>
+    <li *ngFor="let cafe of cafes">
+        <a routerLink="/cafe/{{cafe.id}}">
+            <img src="{{ cafe.imageUrl }}" alt="">
+            <div class="content">
+                <div class="name">
+                    {{ cafe.name }}
+                </div>
+                <span class="favorite {{cafe.favorite?'':'not'}} ">
+                    🤍
+                </span>
+                <div class="stars">
+                    <star-rating
+                    [value]="cafe.stars"
+                    [totalstars]="5"
+                    checkedcolor="red"
+                    uncheckedcolor="black"
+                    size="20px"
+                    [readonly]="true">
+                </star-rating>
+                </div>
+                <div class="quantity">
+                    <span>📦 {{cafe.quantity}}</span>
+                </div>
+                <div class="price">
+                    <span>
+                        {{cafe.price|currency}}
+                    </span>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>

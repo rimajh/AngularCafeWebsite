@@ -1,0 +1,36 @@
+<div class="container">
+  <img [src]="cafe.imageUrl" [alt]="cafe.name" />
+  <div class="details">
+      <div class="header">
+          <span class="name">
+             {{cafe.name}}
+         </span>
+          <span class="favorite {{cafe.favorite?'':'not'}}">
+          🤍
+          </span>
+     </div>
+     <div class="rating">
+      <star-rating
+      [value]="cafe.stars"
+      [totalstars]="5"
+      checkedcolor="red"
+      uncheckedcolor="black"
+      size="30px"
+      [readonly]="true">
+      </star-rating>
+     </div>
+     <div class="quantity">
+      <span>📦 {{cafe.quantity}}</span>
+    </div>
+    <div class="description">
+      <span>❓ {{cafe.description}}</span>
+    </div>
+     <div class="tags">
+       <app-tags [cafePageTags]="cafe.tags"></app-tags>
+     </div>
+     <div class="price">
+      <span>{{cafe.price| currency}}</span>
+     </div>
+     <button>Add to cart</button>
+  </div>
+</div>
